@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" encoding="utf-8">
 <head>
   <title>jQuery pageSlide plugin</title>
-  
+  <script type="text/javascript"> document.documentElement.className = 'js'; </script>
   <!-- Files used by jQuery pageSlide plugin -->
   <script type="text/javascript" src="../libs/jquery.js"></script>
   <script type="text/javascript" src="../jquery.pageslide.js"></script>
@@ -13,9 +13,10 @@
   <!-- Start jQuery pageSlide code -->
   <script type="text/javascript">
   $(document).ready(function() {
-      $('a').pageSlide({
+      $('a:first').pageSlide({
           width: "350px"
       });
+      $('a:eq(1)').pageSlide({contentSource: 'inline', width: '350px'});
   });
   </script>
   <!-- end jQuery pageSlide code -->
@@ -47,11 +48,18 @@
         padding: 15px 35px;
     }
     
+    .js .js-hide { display: none;}
+    .js #pageslide-slide-wrap .js-hide { display: block; }
+    
   </style>
   <!-- end Style for demo purposes only -->
   
 </head>
 <body>
     <div id="content"><a href="_secondary_page.htm" rel="pageslide">click for pageSlide</a></div>
+    <p><a href="#inline-content">inline page slide</a></p>
+    <div id="inline-content" class="js-hide">
+      <p>this is the inline content to be added to the page slide</p>
+    </div>
 </body>
 </html>
